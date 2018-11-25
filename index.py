@@ -1,6 +1,6 @@
 from flask import Flask, request, render_template
 import config_flask
-from pu import Execute
+from pu.Execute import Execute
 import time
 from util import db_util
 
@@ -20,8 +20,7 @@ def presto_exe():
     exe.status = 'new'
     exe.create_time = time.strftime('%Y-%m-%d %H:%M:%S')
     db_util.save_exe(exe)
-    #db_util.save(hql)
-    #return render_template('exe_log.html')
+    return render_template('index.html')
 
 #@app.route('/candles_3ls/<code>')
 #def candles_3ls(code):

@@ -14,7 +14,7 @@ delete from t_holding where dt between '${date_start}' and '${date_end}'
 """
 sql_dict['save_execute'] = """
 INSERT INTO t_loganalysis_execute (hql, status, create_time, last_modified, creator)
-VALUES ('%s', '%s', '%s', '%s', '%s')
+VALUES ("%s", '%s', '%s', '%s', '%s')
 """
 sql_dict['delete_ast_by_day'] = """
 delete from t_ast where dt between '${date_start}' and '${date_end}'
