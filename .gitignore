@@ -1,0 +1,6 @@
+*.bak
+*.pyc
+*.log
+.idea/
+.config/*
+.util/config_script.py
