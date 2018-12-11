@@ -12,8 +12,9 @@ def hello_world():
     # return 'hello world'
 
 @app.route('/execute', methods=['POST'])
-def ast_summary():
-    print request.form['username']
+def presto_exe():
+    print 'post req execute'
+    print request.form['user']
     print request.form['hql']
     #db_util.save(hql)
     #return render_template('exe_log.html')
