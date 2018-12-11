@@ -1,6 +1,7 @@
 *.bak
 *.pyc
 *.log
+*.conf
 .idea/
 .config/*
 .util/config_script.py
