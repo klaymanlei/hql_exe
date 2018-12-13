@@ -69,12 +69,11 @@ def delete_ast(date_str):
     except Exception, e:
         traceback.print_exc()
 
-def save_ast(asts):
+def save_exe(execute):
     try:
-        sql_template = sqls.sql_dict['save_ast']
-        for ast in asts:
-            sql = sql_template % ast.to_tuple()
-            update(sql)
+        sql_template = sqls.sql_dict['save_execute']
+        sql = sql_template % execute.to_tuple()
+        update(sql)
     except Exception, e:
         traceback.print_exc()
 

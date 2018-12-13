@@ -1,7 +1,8 @@
 from flask import Flask, request, render_template
 import config_flask
-import json
-import util.db_util
+from pu import Execute
+import time
+from util import db_util
 
 app = Flask(__name__)
 app.config.from_object(config_flask)
@@ -13,9 +14,12 @@ def hello_world():
 
 @app.route('/execute', methods=['POST'])
 def presto_exe():
-    print 'post req execute'
-    print request.form['user']
-    print request.form['hql']
+    exe = Execute()
+    exe.creator = request.form['user']
+    exe.hql = request.form['hql']
+    exe.status = 'new'
+    exe.create_time = time.strftime('%Y-%m-%d %H:%M:%S')
+    db_util.save_exe(exe)
     #db_util.save(hql)
     #return render_template('exe_log.html')
 
